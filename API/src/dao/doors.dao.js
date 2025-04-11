@@ -65,9 +65,18 @@ doorsDAO.getDoorById = async (door_id) => {
 };
 
 
-doorsDAO.verificarHuella = async (user_id) =>{
-  return await Door.findOne({ "allowedUsers._id": user_id });
-}
+doorsDAO.verificarHuella = async (user_id) => {
+  console.log("🔍 Buscando huella con ID:", user_id);
+
+  try {
+    const result = await Door.findOne({ "allowedUsers._id": String(user_id) });
+    console.log("🔍 Resultado de la búsqueda:", result);
+    return result;
+  } catch (error) {
+    console.error("❌ Error al buscar la huella:", error);
+    throw error;
+  }
+};
 
 doorsDAO.agregarHuella = async (door_id, user_id) => {
   return await Door.updateOne(
