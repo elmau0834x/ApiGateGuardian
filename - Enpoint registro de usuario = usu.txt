@@ -1,0 +1,5 @@
+- Enpoint registro de usuario => usuario se registra en la app => posteriormente el Arduino guarda la huella
+- Enpoint validar huella => usario coloca huella => se recibe ID de huella => validamos que este registrado en la puerta => se da permiso a girar servos
+- Endpoint crear clave => se crea clave desde la app => se envia clave a la base
+- Endpoint validar clave => se ingresa clave en el esp32 => se valida que este en la base => validando se giran los servos
+
